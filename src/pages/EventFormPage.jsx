@@ -102,13 +102,13 @@ const EventFormPage = () => {
       if (brochures.length > 0) {
         const formData = new FormData();
         brochures.forEach((file, i) => formData.append('brochures', file));
-        const res = await axios.post('http://localhost:5000/api/events/upload-brochures', formData, {
+        const res = await axios.post('https://math-back.up.railway.app/api/events/upload-brochures', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
         eventData.brochures = res.data.urls || [];
       }
       // 4. Send event data to backend
-      const res = await axios.post('http://localhost:5000/api/events', eventData);
+      const res = await axios.post('https://math-back.up.railway.app/api/events', eventData);
       alert('Event created successfully!');
       const eventId = res.data._id || res.data.id;
       if (eventId) {

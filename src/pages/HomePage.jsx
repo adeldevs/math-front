@@ -13,7 +13,7 @@ export const HomePage = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    axios.get('http://localhost:5000/api/events')
+    axios.get('https://math-back.up.railway.app/api/events')
       .then(res => setEvents(res.data))
       .catch(err => console.error(err));
   }, []);

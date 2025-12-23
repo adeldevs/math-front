@@ -10,7 +10,7 @@ export default function AdminEventEditPage() {
 
   useEffect(() => {
     if (!id) return;
-    axios.get(`http://localhost:5000/api/events/${id}`)
+    axios.get(`https://math-back.up.railway.app/api/events/${id}`)
       .then(res => setEvent(res.data))
       .catch(() => setEvent(null));
   }, [id]);
@@ -141,12 +141,12 @@ export default function AdminEventEditPage() {
     try {
       if (id) {
         // Update
-        await axios.put(`http://localhost:5000/api/events/${id}`, payload);
+        await axios.put(`https://math-back.up.railway.app/api/events/${id}`, payload);
         alert('Event updated!');
         navigate(`/event/${id}`);
       } else {
         // Create
-        const res = await axios.post('http://localhost:5000/api/events', payload);
+        const res = await axios.post('https://math-back.up.railway.app/api/events', payload);
         alert('Event created!');
         const eventId = res.data._id || res.data.id;
         if (eventId) {
@@ -165,7 +165,7 @@ export default function AdminEventEditPage() {
     if (!id) return;
     if (!window.confirm('Are you sure you want to delete this event?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/events/${id}`);
+      await axios.delete(`https://math-back.up.railway.app/api/events/${id}`);
       alert('Event deleted!');
       navigate('/admin/events');
     } catch {

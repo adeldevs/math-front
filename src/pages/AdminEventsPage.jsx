@@ -10,7 +10,7 @@ const AdminEventsPage = () => {
 
 
   const fetchEvents = () => {
-    axios.get('http://localhost:5000/api/events')
+    axios.get('https://math-back.up.railway.app/api/events')
       .then(res => setAllEvents(res.data))
       .catch(err => console.error(err));
   };
@@ -23,7 +23,7 @@ const AdminEventsPage = () => {
   const handleDelete = async (eventId) => {
     if (!window.confirm('Are you sure you want to delete this event?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/events/${eventId}`);
+      await axios.delete(`https://math-back.up.railway.app/api/events/${eventId}`);
       setAllEvents(allEvents.filter(ev => (ev._id || ev.id) !== eventId));
       // Optionally, refetch from server:
       // fetchEvents();

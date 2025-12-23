@@ -14,7 +14,7 @@ export const EventDetailPage = () => {
 
   useEffect(() => {
     if (!id) return;
-    axios.get(`http://localhost:5000/api/events/${id}`)
+    axios.get(`https://math-back.up.railway.app/api/events/${id}`)
       .then(res => setEvent(res.data))
       .catch(() => setEvent(null));
   }, [id]);
